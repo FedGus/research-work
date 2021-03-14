@@ -17,3 +17,15 @@ export default {
   }
 };
 </script>
+<style scoped>
+.home {
+  width: 50vw;
+  margin: auto;
+  padding: 4rem;
+  box-shadow: 0 2px 5px gray;
+  font-family: 'Times New Roman';
+}
+h1, h2 {
+  margin: 0;
+}
+</style>

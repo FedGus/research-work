@@ -1,41 +1,42 @@
 <script>
-import { Line } from 'vue-chartjs'
+import { Line, mixins } from "vue-chartjs";
+const { reactiveProp } = mixins;
 export default {
   name: "LineChart",
   extends: Line,
+  mixins: [reactiveProp],
   props: ["pointsX", "pointsY"],
   data() {
-return {
+    return {
       chartdata: {
         labels: this.pointsX,
         datasets: [
           {
-            label: "Количество",
-            backgroundColor: [
-              "rgba(255, 99, 132, 0.2)",
-              "rgba(54, 162, 235, 0.2)"
-            ],
-            borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
+            label: "Межосевое расстояние",
+            backgroundColor: ["rgba(255, 99, 132, 0.2)"],
+            borderColor: ["rgba(255, 99, 132, 1)"],
             borderWidth: 1,
-            data: this.pointsY
-          }
-        ]
+            data: this.pointsY,
+          },
+        ],
       },
       options: {
         legend: {
-          display: false
+          display: false,
         },
         labels: {
-          fontColor: "black"
+          fontColor: "black",
         },
         title: {
           display: true,
-          text: "Зависимость автоматическая от передаточного числа и межосевого расстояния",
-          fontSize: "12",
-          fontColor: "black"
+          text:
+            "Зависимость автоматическая от передаточного числа и межосевого расстояния",
+          fontFamily: "Times New Roman",
+          fontSize: "14",
+          fontColor: "black",
         },
         tooltips: {
-          displayColors: false
+          displayColors: false,
         },
         responsive: true,
         maintainAspectRatio: false,
@@ -49,29 +50,29 @@ return {
               gridLines: {
                 color: "rgba(255,255,255,0.2)",
                 lineWidth: 1,
-                borderDash: [2, 5]
-              }
-            }
+                borderDash: [2, 5],
+              },
+            },
           ],
           yAxes: [
             {
               ticks: {
                 beginAtZero: true,
-                fontColor: "black"
+                fontColor: "black",
               },
               gridLines: {
                 color: "rgba(255,255,255,0.2)",
                 lineWidth: 1,
-                borderDash: [2, 5]
-              }
-            }
-          ]
-        }
-      }
+                borderDash: [2, 5],
+              },
+            },
+          ],
+        },
+      },
     };
   },
   mounted() {
-     this.renderChart(this.chartdata, this.options)
+    this.renderChart(this.chartdata, this.options);
   },
 };
 </script>
