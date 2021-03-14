@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <div id="nav" class="no-print">
       <router-link to="/">Просмотр отчета</router-link> |
       <router-link to="/about">Загрузка новых данных</router-link>
     </div>
@@ -28,5 +28,21 @@
       color: #42b983;
     }
   }
+}
+
+button {
+  background: #42b983;
+  padding: 20px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px #888888;
+  border: 0;
+  border-radius: 8px;
+
+}
+img {
+  width: 30vw;
+  margin: 10px
 }
 </style>

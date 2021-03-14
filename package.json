@@ -15,6 +15,8 @@
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
     "vue-chartjs": "^3.5.1",
+    "vue-html-to-paper": "^1.3.1",
+    "vue-print-nb": "^1.6.0",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
   },

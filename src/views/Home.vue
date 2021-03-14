@@ -1,31 +1,38 @@
 <template>
-  <div class="home">
-    <h1>Отчет</h1>
-    <h2>о научно-исследовательской работе</h2>
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div id="home">
+    <Report />
+    <button v-print class="no-print">Печать отчета</button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import Report from "@/components/Report.vue";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld
-  }
+    Report,
+  },
 };
 </script>
-<style scoped>
-.home {
+<style lang="scss">
+@media print {
+  #home {
+    width: 100% !important;
+ box-shadow: none !important;
+ margin: 0 !important;
+ padding: 0 !important;
+  }
+  .no-print {
+    display: none;
+  }
+}
+#home {
   width: 50vw;
   margin: auto;
   padding: 4rem;
   box-shadow: 0 2px 5px gray;
-  font-family: 'Times New Roman';
-}
-h1, h2 {
-  margin: 0;
+  font-family: "Times New Roman";
 }
 </style>
