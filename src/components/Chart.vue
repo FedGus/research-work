@@ -3,10 +3,11 @@ import { Line } from 'vue-chartjs'
 export default {
   name: "LineChart",
   extends: Line,
+  props: ["pointsX", "pointsY"],
   data() {
 return {
       chartdata: {
-        labels: ["a", "a", "a", "a"],
+        labels: this.pointsX,
         datasets: [
           {
             label: "Количество",
@@ -16,8 +17,7 @@ return {
             ],
             borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
             borderWidth: 1,
-            data: [1, 2, 3, 1]
-            //data: [this.users, this.orgs]
+            data: this.pointsY
           }
         ]
       },
@@ -26,13 +26,13 @@ return {
           display: false
         },
         labels: {
-          fontColor: "white"
+          fontColor: "black"
         },
         title: {
           display: true,
-          text: "Количество новых за последнюю неделю",
-          fontSize: "16",
-          fontColor: "white"
+          text: "Зависимость автоматическая от передаточного числа и межосевого расстояния",
+          fontSize: "12",
+          fontColor: "black"
         },
         tooltips: {
           displayColors: false
@@ -44,7 +44,7 @@ return {
             {
               ticks: {
                 display: true,
-                fontColor: "white"
+                fontColor: "black",
               },
               gridLines: {
                 color: "rgba(255,255,255,0.2)",
@@ -57,7 +57,7 @@ return {
             {
               ticks: {
                 beginAtZero: true,
-                fontColor: "white"
+                fontColor: "black"
               },
               gridLines: {
                 color: "rgba(255,255,255,0.2)",

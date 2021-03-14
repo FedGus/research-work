@@ -1,6 +1,6 @@
 <template>
   <div>
-    <chart></chart>
+    <chart :pointsX="pointsX" :pointsY="pointsY"></chart>
   </div>
 </template>
 
@@ -10,12 +10,26 @@ import Chart from "./Chart.vue";
 export default {
   name: "HelloWorld",
   components: { Chart },
+  data() {
+    return {
+      data: [],
+      pointsX: [],
+      pointsY: []
+    }
+  },
   mounted() {
     axios
       .get("http://localhost:8085/api/data")
       .then((response) => {
-        console.log(response.data);
-        this.units = response.data;
+        this.data = response.data;
+        for (let i = 0; i < this.data.length; i++) {
+          let x = response.data[i].ratio.replace(/,/i, '.');
+          let y = response.data[i].center_distance.replace(/,/i, '.');
+          this.pointsX[i] = x;
+           this.pointsY[i] = y;
+        }
+        console.log(this.pointsX);
+        console.log(this.pointsY);
       })
       .catch((error) => {
         console.log(error);
