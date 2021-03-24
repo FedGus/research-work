@@ -20,7 +20,7 @@ app.use(
 );
 
 // Обработка статических файлов
-app.use("/", serveStatic(path.join(__dirname, "../dist/project")));
+app.use("/", serveStatic(path.join(__dirname, "../dist")));
 
 // Парсинг запросов по типу: application/x-www-form-urlencoded
 app.use(
@@ -87,7 +87,7 @@ if (process.env.NODE_ENV === "production") {
     // Информирование о запуске сервера и его порте
     // Информирование о запуске сервера и его порте
     app
-        .use("/", serveStatic(path.join(__dirname, "../dist/project")))
+        .use("/", serveStatic(path.join(__dirname, "../dist")))
         .listen(port, () => {
             console.log("Сервер запущен на http://localhost:" + port);
         });
