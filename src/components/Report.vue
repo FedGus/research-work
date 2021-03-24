@@ -56,7 +56,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost:8085/api/data")
+      .get("api/data")
       .then((response) => {
         this.data = response.data;
         for (let i = 0; i < this.data.length; i++) {

@@ -7,15 +7,15 @@
         <label class="label">
           <img class="icon" src="@/assets/icon.svg" />
           <span class="title"> Выбрать файл </span>
-          <input type="file" @change="onFileChange" />
-        </label><br>
+          <input type="file" @change="onFileChange" /> </label
+        ><br />
         <button
-            @click="onUploadFile"
-            class="upload-button"
-            :disabled="!this.selectedFile"
-          >
-            Загрузить
-          </button>
+          @click="onUploadFile"
+          class="upload-button"
+          :disabled="!this.selectedFile"
+        >
+          Загрузить
+        </button>
       </div>
     </div>
     <p>
@@ -43,7 +43,7 @@ export default {
 
       // sending file to the backend
       axios
-        .post("http://localhost:8085/api/upload", formData)
+        .post("api/upload", formData)
         .then((res) => {
           console.log(res);
         })
