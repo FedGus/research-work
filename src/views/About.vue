@@ -6,9 +6,16 @@
       <div class="form-group">
         <label class="label">
           <img class="icon" src="@/assets/icon.svg" />
-          <span class="title">Добавить файл</span>
-          <input type="file" />
-        </label>
+          <span class="title"> Выбрать файл </span>
+          <input type="file" @change="onFileChange" />
+        </label><br>
+        <button
+            @click="onUploadFile"
+            class="upload-button"
+            :disabled="!this.selectedFile"
+          >
+            Загрузить
+          </button>
       </div>
     </div>
     <p>
@@ -17,7 +24,35 @@
   </div>
 </template>
 <script>
-export default {};
+import axios from "axios";
+
+export default {
+  data() {
+    return {
+      selectedFile: "",
+    };
+  },
+  methods: {
+    onFileChange(e) {
+      const selectedFile = e.target.files[0]; // accessing file
+      this.selectedFile = selectedFile;
+    },
+    onUploadFile() {
+      const formData = new FormData();
+      formData.append("file", this.selectedFile); // appending file
+
+      // sending file to the backend
+      axios
+        .post("http://localhost:8085/api/upload", formData)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
+};
 </script>
 <style scoped lang="scss">
 .home {

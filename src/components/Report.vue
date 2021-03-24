@@ -76,13 +76,18 @@ export default {
         }
         // console.log(this.pointsX);
         // console.log(this.pointsY);
+        this.reload();
       })
       .catch((error) => {
         console.log(error);
       });
   },
   methods: {
-  }
+    reload() {
+      let block = document.getElementById("printMe");
+      block.style.width = block.offsetWidth + 1 + "px";
+    },
+  },
 };
 </script>
 
@@ -108,7 +113,7 @@ P {
   & ol {
     text-indent: 0;
     & li {
-          display: list-item;
+      display: list-item;
     }
   }
 }
